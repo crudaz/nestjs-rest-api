@@ -1,14 +1,14 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ProductsService } from './products.service';
+import { CategoriesTypeService } from './categories-type.service';
 import { MongooseModule, getConnectionToken } from '@nestjs/mongoose';
 import { Connection } from 'mongoose';
-import { ProductClass, ProductSchema } from './schemas/product.schema';
+import { CategoryTypeClass, CategoryTypeSchema } from './schemas/category-type.schema';
 import DbModule, {
   closeMongoConnection,
 } from '../../test/utils/db-test-module';
 
 describe('ProductService', () => {
-  let service: ProductsService;
+  let service: CategoriesTypeService;
   let connection: Connection;
 
   beforeEach(async () => {
@@ -18,13 +18,13 @@ describe('ProductService', () => {
           connectionName: (new Date().getTime() * Math.random()).toString(16),
         }),
         MongooseModule.forFeature([
-          { name: ProductClass.name, schema: ProductSchema },
+          { name: CategoryTypeClass.name, schema: CategoryTypeSchema },
         ]),
       ],
-      providers: [ProductsService],
+      providers: [CategoriesTypeService],
     }).compile();
 
-    service = module.get<ProductsService>(ProductsService);
+    service = module.get<CategoriesTypeService>(CategoriesTypeService);
     connection = await module.get(getConnectionToken());
   });
 
