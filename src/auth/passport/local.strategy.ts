@@ -13,7 +13,7 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
     constructor(private readonly authService: AuthService,
                 @InjectModel('User') private readonly userModel: PassportLocalModel<IUser>) {
         super({
-            usernameField: 'email',
+            usernameField: 'username',
             passwordField: 'password',
         }, userModel.authenticate());
     }

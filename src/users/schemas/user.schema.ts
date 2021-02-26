@@ -1,10 +1,27 @@
-import * as mongoose from 'mongoose';
 import * as passportLocalMongoose from 'passport-local-mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
 
-export const UserSchema = new mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    email: String,
-    password: String,
-});
-UserSchema.plugin(passportLocalMongoose);
+@Schema()
+export class UserClass extends Document {
+  @Prop()
+  firstName: String;
+  
+  @Prop()
+  lastName: String;
+
+  @Prop()
+  rol: String;
+
+  @Prop()
+  imageProfile: String;
+
+  @Prop()
+  username: String;
+
+  @Prop()
+  password: String;
+}
+
+export const UserSchema = SchemaFactory.createForClass(UserClass).plugin(passportLocalMongoose);
+
