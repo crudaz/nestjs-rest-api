@@ -15,9 +15,13 @@ export class AuthService {
 
     async register(user: IUser) {
         let status: RegistrationStatus = { success: true, message: 'user register' };
-        await this.userModel.register(new this.userModel({username: user.email,
+        await this.userModel.register(new this.userModel({
             firstName: user.firstName,
-            lastName: user.lastName}), user.password, (err) => {
+            lastName: user.lastName,
+            rol: user.rol,
+            imageProfile: user.imageProfile,
+            username: user.username,
+        }), user.password, (err) => {
             if (err) {
                 debug(err);
                 status = { success: false, message: err };
@@ -25,7 +29,7 @@ export class AuthService {
         });
         return status;
     }
-
+ 
     createToken(user) {
         console.log('get the expiration');
         const expiresIn = 3600;
@@ -33,7 +37,7 @@ export class AuthService {
         console.log(user);
 
         const accessToken = jwt.sign({ id: user.id,
-            email: user.username,
+            username: user.username,
             firstname: user.firstName,
             lastname: user.lastName }, 'ILovePokemon', { expiresIn });
         console.log('return the token');
