@@ -18,7 +18,7 @@ import config from './config/keys';
     CoursesModule,
     UsersModule,
     CoursesByUserModule,
-    CategoriesTypeModule
+    CategoriesTypeModule,
   ],
 })
 export class AppModule {}

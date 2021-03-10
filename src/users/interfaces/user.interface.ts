@@ -8,3 +8,8 @@ export interface IUser extends PassportLocalDocument {
     readonly username: string;
     readonly password: string;
 }
+
+export enum UserRole {
+    ADMIN = 'admin',
+    USER = 'user'
+}
