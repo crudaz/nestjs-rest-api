@@ -40,13 +40,18 @@ export class UsersService implements IUsersService {
     return await this.userModel.findById(ID).exec();
   }
 
-  async delete(ID: number): Promise<string> {
-    try {
-      await this.userModel.findByIdAndRemove(ID).exec();
-      return 'The user has been deleted' 
-    } catch (err) {
-      debug(err);
-      return 'The user could not be deleted'
-    }
+  // async delete(ID: number): Promise<string> {
+  //   try {
+  //     await this.userModel.findByIdAndRemove(ID).exec();
+  //     return 'The user has been deleted' 
+  //   } catch (err) {
+  //     debug(err);
+  //     return 'The user could not be deleted'
+  //   }
+  // }
+
+  async delete(ID: number): Promise<any>{
+    return await this.userModel.findByIdAndRemove(ID);
   }
+  
 }
