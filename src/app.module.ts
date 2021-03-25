@@ -7,6 +7,7 @@ import { CoursesModule } from './courses/courses.module';
 import { UsersModule } from './users/users.module';
 import { CoursesByUserModule } from './courseByUser/coursesByUser.module';
 import { CategoriesTypeModule } from './categoriesTypes/categories-type.module';
+import { CourseListByUserModule } from './courseListByUser/courseListByUser.module';
 
 import config from './config/keys';
 
@@ -14,11 +15,12 @@ import config from './config/keys';
   imports: [
     MongooseModule.forRoot(config.mongoURI),
     AuthModule,
-    CategoriesModule, 
+    CategoriesModule,
     CoursesModule,
     UsersModule,
     CoursesByUserModule,
     CategoriesTypeModule,
+    CourseListByUserModule,
   ],
 })
 export class AppModule {}
