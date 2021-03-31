@@ -45,6 +45,7 @@ export class AuthService {
         return {
             expiresIn,
             accessToken,
+            user,
         };
     }
     async validateUser(payload: JwtPayload): Promise<any> {

@@ -13,4 +13,5 @@ interface Chapters {
   name: string;
   time: string;
   percent: string;
+  endDate: string;
 }

@@ -7,7 +7,7 @@ import {
   Body,
   Param,
 } from '@nestjs/common';
-import { CreateCourseByUserListDto } from './dto/create-courseByUserList.dto';;
+import { createCourseListByUserDto } from './dto/create-courseListByUser.dto';;
 import { CourseListByUser } from './interfaces/courseListByUser.interface';
 import { CourseListByUserService } from './courseListByUser.service';
 
@@ -26,7 +26,7 @@ export class CourseListByUserController {
   }
 
   @Post()
-  create(@Body() createCourseDto: CreateCourseByUserListDto): Promise<CourseListByUser> {
+  create(@Body() createCourseDto: createCourseListByUserDto): Promise<CourseListByUser> {
     return this.coursesService.create(createCourseDto);
   }
 
@@ -38,7 +38,7 @@ export class CourseListByUserController {
   @Put(':id')
   update(
     @Param('id') id: string,
-    @Body() updateCourseDto: CreateCourseByUserListDto,
+    @Body() updateCourseDto: createCourseListByUserDto,
   ): Promise<CourseListByUser> {
     return this.coursesService.update(id, updateCourseDto);
   }

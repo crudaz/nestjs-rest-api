@@ -37,6 +37,9 @@ export class ChaptersClass {
 
   @Prop()
   percent: string;
+  
+  @Prop()
+  endDate: string;
 }
 
 export const CourseSchema = SchemaFactory.createForClass(CourseClass);

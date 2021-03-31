@@ -13,4 +13,5 @@ interface Chapters {
   readonly name: string;
   readonly time: string;
   readonly percent: string;
+  readonly endDate: string;
 }
